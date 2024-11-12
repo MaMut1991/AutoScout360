@@ -8,15 +8,18 @@ The file autoscout24.csv contains information from AutoScout24 about sold cars. 
 **Analysis**
 
 Interesting questions to explore might include:
-- How many cars were sold? Over what period?
-- Which car brands are represented?
-- Are there correlations between the (numerical) features?
-- Are there changes over the years?
+- which car brand / car model has the highest mean in mileage (indicating best quality)?
+- how the value of vehicles is influenced by the type of powertrain?
+- how does the value of vehicles change over time, depending on mileage of car?
+- how does the value of vehicles change over time, depending on year of registration?
+- how the value of vehicles is influenced by horsepower?
+- how the value of vehicles in autoscout24 is influenced by number of offers that are placed at the same time?
+- how the value of vehicles is influenced by car brand / model?
 - ...
 
 **Machine Learning**
 
-The following analysis will focus on the 5 manufacturers with the highest number of cars sold. A model will be trained to predict the selling price of a car based on relevant features.
+The following analysis will focus on the 5 manufacturers with the highest number of car offers in dataset. A model will be trained to predict the selling price of a car based on relevant features.
 
 **Dashboard**
 
