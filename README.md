@@ -19,7 +19,7 @@ Interesting questions to explore might include:
 
 **Machine Learning**
 
-The following analysis will focus on the 5 manufacturers with the highest number of cars sold. A model will be trained to predict the selling price of a car based on relevant features.
+The following analysis will focus on the 5 manufacturers with the highest number of car offers in dataset. A model will be trained to predict the selling price of a car based on relevant features.
 
 **Dashboard**
 
