@@ -29,8 +29,10 @@ input_hp_find = st.sidebar.multiselect(label='Horsepower:',options=options_hp,ke
 input_year_find = st.sidebar.slider(label='Choose range for Year of Registration:',min_value=options_year[0],max_value=options_year[1],value=options_year,key='find_car_year')
 
 col1,col2 = st.sidebar.columns(2)
-button_find_car = col1.button('Find car')
-button_find_car_reset = col2.button('Reset') 
+button_find_car = col1.button(label='Find car',key='find_car_button')
+button_find_car_reset = col2.button(label='Reset', key='find_car_reset_button') 
+
+st.sidebar.markdown('---')  # Spatial separation 
 
 # Sell car
 st.sidebar.markdown('# SELL your old car:')
@@ -42,3 +44,6 @@ input_gear_sell = st.sidebar.multiselect(label='Gear:',options=options_gear,key=
 input_hp_sell = st.sidebar.number_input(label='Enter Horsepower:',key='sell_car_hp')
 input_year_sell = st.sidebar.number_input(label='Enter Year of Registration',key='sell_car_year')
 
+col1,col2 = st.sidebar.columns(2)
+button_sell_car = col1.button(label='Sell car',key='sell_car_button')
+button_sell_car_reset = col2.button(label='Reset', key='sell_car_reset_button') 
