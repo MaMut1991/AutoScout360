@@ -3,6 +3,8 @@ import streamlit as st
 from analysis import get_multiselect_options
 from analysis import provide_data_find
 from analysis import get_options_brand
+from analysis import get_options_model
+from analysis import get_options_propulsion
 
 # Layout
 st.set_page_config(layout="wide")
@@ -11,6 +13,7 @@ st.set_page_config(layout="wide")
 st.header('AutoScout360 - With some clever insights to your new car!')
 
 # Sidebar
+st.sidebar.markdown('# FIND your new car:')
 
 # Find car
 # Get brands for multiselect 'car_brand'
@@ -22,7 +25,7 @@ default_values_find = {
     'find_car_model': [],
     'find_car_fuel': [],
     'find_car_gear': [],
-    'find_car_hp': (50, 500),
+    'find_car_hp': (0, 500),
     'find_car_year': (2000, 2024)
 }
 
@@ -38,11 +41,11 @@ input_brand_find = st.sidebar.multiselect(
     default=st.session_state['find_car_brand'],
     key='find_car_brand'
 )
-
+# Ask for options_model based on selected car brands
 if input_brand_find:
-    options_mileage, options_model, options_fuel, options_gear, options_hp, options_year = get_multiselect_options(input_brand_find)
+    options_model = get_options_model(input_brand_find)
 else:
-    options_mileage, options_model, options_fuel, options_gear, options_hp, options_year = get_multiselect_options(None)
+    options_model = get_multiselect_options(None)
 
 input_model_find = st.sidebar.multiselect(
     label='Model:',
@@ -50,12 +53,21 @@ input_model_find = st.sidebar.multiselect(
     default=st.session_state['find_car_model'],
     key='find_car_model'
 )
+if (input_brand_find) and (input_model_find):
+    options_fuel = get_options_propulsion(input_brand_find, input_model_find)
+else:
+    options_fuel= get_multiselect_options(None)
+
+# Ask for options_fuel based on selected brands and models
 input_fuel_find = st.sidebar.multiselect(
     label='Propulsion:',
     options=options_fuel,
     default=st.session_state['find_car_fuel'],
     key='find_car_fuel'
 )
+
+options_mileage,options_gear, options_hp, options_year = get_multiselect_options(input_brand_find)
+
 input_gear_find = st.sidebar.multiselect(
     label='Gear:',
     options=options_gear,
